@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/api/curso") // This means URL's start with /demo (after Application path)
@@ -35,6 +36,8 @@ public class MainController {
     return userRepository.findAll();
   }
 
+
+
   @DeleteMapping(path="/eliminar") // Map ONLY POST Requests
   public @ResponseBody String editCurso (@RequestParam Integer id) {
     // @ResponseBody means the returned String is the response, not a view name
@@ -45,4 +48,6 @@ public class MainController {
     userRepository.delete(n);
     return "Delete";
   }
+
+    
 }
